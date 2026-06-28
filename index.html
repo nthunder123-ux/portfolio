@@ -3,83 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Editor Portfolio</title>
+    <title>Khalil Timlilt | Video Editor Portfolio</title>
     <style>
         /* Base Reset & Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #141414;
+            --bg-color: #050505;
+            --card-bg: #111111;
             --text-main: #ffffff;
-            --text-muted: #aaaaaa;
-            --accent: #0076ff; /* Clean Blue Accent */
+            --text-muted: #8e8e93;
+            --accent: #0076ff; 
+            --accent-glow: rgba(0, 118, 255, 0.3);
+            --border-color: rgba(255, 255, 255, 0.08);
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 4rem 1.5rem;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Header Section */
+        /* Header Section Decorative Styles */
         header {
             text-align: center;
-            margin-bottom: 4rem;
-            padding-top: 2rem;
+            margin-bottom: 5rem;
+            position: relative;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Portfolio Grid */
+        /* Premium 9:16 Vertical Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
         }
 
-        /* Video Card */
+        /* Enhanced Decorative Video Card */
         .video-card {
             background-color: var(--card-bg);
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.2s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
         .video-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px var(--accent-glow);
         }
 
-        /* Responsive Video Container */
+        /* 9:16 Native Vertical Video Container */
         .video-container {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 9 / 16;
+            background-color: #000;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .video-container iframe {
@@ -91,22 +102,26 @@
             border: 0;
         }
 
-        /* Card Info */
+        /* Card Typography Info */
         .video-info {
-            padding: 1.5rem;
+            padding: 1.75rem;
         }
 
         .video-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
         }
 
         .video-info p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            min-height: 4.5 line-height;
         }
 
+        /* Custom Tags */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -114,50 +129,60 @@
         }
 
         .tag {
-            background-color: rgba(255, 255, 255, 0.08);
-            color: var(--text-main);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #e5e5ea;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            font-size: 0.78rem;
             font-weight: 600;
+            letter-spacing: 0.2px;
         }
 
-        /* Footer / Contact Section */
+        /* Decorative Footer / Contact Section */
         footer {
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
             margin-bottom: 2rem;
         }
 
         footer h2 {
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
         footer p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .contact-btn {
             display: inline-block;
-            background-color: var(--accent);
-            color: white;
+            background-color: var(--text-main);
+            color: var(--bg-color);
             text-decoration: none;
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
+            padding: 0.9rem 2.5rem;
+            border-radius: 8px;
             font-weight: 600;
-            transition: background 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
         }
 
         .contact-btn:hover {
-            background-color: #005fd1;
+            background-color: var(--accent);
+            color: var(--text-main);
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px var(--accent-glow);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 480px) {
-            header h1 { font-size: 2rem; }
-            .portfolio-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+        /* Responsive Mobile Layout adjustments */
+        @media (max-width: 768px) {
+            body { padding: 2rem 1rem; }
+            header h1 { font-size: 2.25rem; }
+            .portfolio-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 4rem auto; gap: 2.5rem; }
         }
     </style>
 </head>
@@ -165,16 +190,19 @@
 
     <div class="container">
         
+        <!-- Header Section -->
         <header>
             <h1>Khalil Timlilt</h1>
             <p>Video Editor specializing in dynamic short-form content, sleek commercial edits, and cinematic storytelling.</p>
         </header>
 
+        <!-- Portfolio Grid Layout (9:16 Vertical Format) -->
         <main class="portfolio-grid">
 
+            <!-- Video Item 1 (Showreel) -->
             <div class="video-card">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/L7oKbKEEQss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/L7oKbKEEQss" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>2026 Editing Showreel</h3>
@@ -187,13 +215,14 @@
                 </div>
             </div>
 
+            <!-- Video Item 2 (Cinematic) -->
             <div class="video-card">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/u36GGVJ1YFc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/u36GGVJ1YFc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>Cinematic Short Film / Commercial</h3>
-                    <p>Focused heavily on deliberate pacing, color matching, and narrative structure to drive engagement.</p>
+                    <p>Focused heavily on deliberate pacing, color matching, and narrative structure to drive high engagement.</p>
                     <div class="tags">
                         <span class="tag">DaVinci Resolve</span>
                         <span class="tag">Color Grading</span>
@@ -201,23 +230,25 @@
                 </div>
             </div>
 
+            <!-- Video Item 3 (Short-Form) -->
             <div class="video-card">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/HV_lMQdEPI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/HV_lMQdEPI8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>Social Media Short-Form Edit</h3>
-                    <p>High-retention editing style optimized for TikTok and Instagram Reels with custom motion graphics.</p>
+                    <p>High-retention editing style optimized for TikTok, YouTube Shorts, and Instagram Reels layout constraints.</p>
                     <div class="tags">
-                        <span class="tag">After Effects</span>
+                        <span class="tag">Premiere Pro</span>
                         <span class="tag">Short-Form</span>
-                        <span class="tag">Motion Graphics</span>
+                        <span class="tag">Pacing</span>
                     </div>
                 </div>
             </div>
 
         </main>
 
+        <!-- Footer / Contact Section -->
         <footer>
             <h2>Let's Work Together</h2>
             <p>Available for freelance projects, contract roles, and remote collaborations.</p>
